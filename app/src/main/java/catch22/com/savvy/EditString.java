@@ -25,7 +25,7 @@ public class EditString
     private static LoginDataBaseAdapter loginDataBaseAdapter;
 
 
-    public static List<String> ignore=new ArrayList<String>( Arrays.asList("a","of","to","the","how","do","i"));
+    public static List<String> ignore=new ArrayList<String>( Arrays.asList("a","of","to","the","how","do","i", "my", "in", "someone"));
     public static List<String> keyword=new ArrayList<String>( Arrays.asList("create","change","make","modify","update","add","view","save","delete","exit","leave","invite","star","see","unstar","remove","use","setup","attach","send","open","call","dial","import","sort","enable","disable","check","search","write","text","select","deselect","get","lower","decrease","increase","start","stop","switch","toggle","set","document"));
 //    public static List<String> apps = new ArrayList<String>(Arrays.asList("whatsapp", "dialer", "messaging", "launcher"));
     public static ArrayList<ArrayList<String>> apps = new ArrayList<>();
@@ -63,7 +63,7 @@ public class EditString
             }
         }
 
-        message = PopupActivity.user_input;
+        message = SettingsActivity.internetServiceEnabled ? PopupActivity.keywords : PopupActivity.user_input;
         wordsOfTheMessage = new ArrayList<String>(Arrays.asList(message.split(" ")));
         for(String word:ignore)
         {
@@ -166,6 +166,9 @@ public class EditString
         int sol = loginDataBaseAdapter.getAll(app_name_message, key_selected, task_selected);
         task_selected = "";
         String result = GetAllEntries.getSolution(sol);
+
+        PopupActivity.keywords = "";
+
 
         return result;
 

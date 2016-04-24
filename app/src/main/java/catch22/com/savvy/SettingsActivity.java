@@ -68,8 +68,8 @@ public class SettingsActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                boolean value = notificationsSwitch.isActivated();
-                Log.d("Settings", "Notifications " + (value ? "Enabled" : "Disabled"));
+                notificationBarEnabled = notificationsSwitch.isChecked();
+                Log.d("Settings", "Notifications " + (notificationBarEnabled ? "Enabled" : "Disabled"));
                 FileHandler.write(SettingsActivity.this);
             }
         });
@@ -77,8 +77,8 @@ public class SettingsActivity extends AppCompatActivity
         accessInternetSwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean value = accessInternetSwitch.isActivated();
-                Log.d("Settings", "Notifications " + (value ? "Enabled" : "Disabled"));
+                internetServiceEnabled = accessInternetSwitch.isChecked();
+                Log.d("Settings", "Notifications " + (internetServiceEnabled ? "Enabled" : "Disabled"));
                 FileHandler.write(SettingsActivity.this);
             }
         });
@@ -172,6 +172,9 @@ public class SettingsActivity extends AppCompatActivity
     protected void onStop()
     {
         super.onStop();
-        startService(new Intent(SettingsActivity.this, BackgroundService.class));
+        if(SettingsActivity.notificationBarEnabled)
+            startService(new Intent(SettingsActivity.this, BackgroundService.class));
+        else
+            stopService(new Intent(SettingsActivity.this, BackgroundService.class));
     }
 }

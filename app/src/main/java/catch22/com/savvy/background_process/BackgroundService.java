@@ -9,6 +9,8 @@ import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -26,6 +28,7 @@ public class BackgroundService extends Service
     private NotificationManager mNM;
     public static String recent="";
     Intent mintent;
+    public static boolean isNetWorkAvailable;
 
     @Nullable
     @Override
@@ -48,6 +51,7 @@ public class BackgroundService extends Service
                         String temporaryName = getUsageStatsForegroundActivityName();
                         if(!temporaryName.equals(recent) && !temporaryName.contains("savvy"))
                             recent = temporaryName;
+                            isNetworkAvailable();
                         try {
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
@@ -128,5 +132,14 @@ public class BackgroundService extends Service
 
         // Send the notification.
         mNM.notify(5, notification);
+    }
+
+    private void isNetworkAvailable()
+    {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        isNetWorkAvailable = activeNetworkInfo != null && activeNetworkInfo.isConnected();
+        Log.d("Internet", String.valueOf(isNetWorkAvailable));
     }
 }

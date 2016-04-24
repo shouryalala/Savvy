@@ -32,7 +32,7 @@ public class FileHandler
             SettingsActivity.notificationBarEnabled = (boolean) objectInputStream.readObject();
             SettingsActivity.internetServiceEnabled = (boolean) objectInputStream.readObject();
             PopupActivity.string = (String) objectInputStream.readObject();
-            Log.d("File Read", SettingsActivity.notificationBarEnabled + " " + SettingsActivity.notificationBarEnabled);
+            Log.d("File Read", SettingsActivity.notificationBarEnabled + " " + SettingsActivity.internetServiceEnabled);
             Log.d("File", "Read");
 
         } catch (Exception fileNotFound)
@@ -76,7 +76,7 @@ public class FileHandler
             objectOutputStream.writeObject(SettingsActivity.notificationBarEnabled);
             objectOutputStream.writeObject(SettingsActivity.internetServiceEnabled);
             objectOutputStream.writeObject(PopupActivity.string);
-            Log.d("File Read", SettingsActivity.notificationBarEnabled + " " + SettingsActivity.notificationBarEnabled);
+            Log.d("File Written", SettingsActivity.notificationBarEnabled + " " + SettingsActivity.internetServiceEnabled);
             outputStream.close();
             Log.d("File", "Written");
         } catch (Exception fileDoesNotExist)

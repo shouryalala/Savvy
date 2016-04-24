@@ -39,7 +39,7 @@ public class GetAllEntries{
             m.insertEntry("whatsapp", "delete", "account",7);
             m.insertEntry("whatsapp", "create", "group",8);
             m.insertEntry("whatsapp", "make", "group",8);
-            m.insertEntry("whatsapp", "make", "admin group",8);
+            m.insertEntry("whatsapp", "make", "admin group",47);//
             m.insertEntry("whatsapp", "mute", "group",9);
             m.insertEntry("whatsapp", "exit", "group",10);
             m.insertEntry("whatsapp", "leave", "group",10);
@@ -88,7 +88,8 @@ public class GetAllEntries{
             m.insertEntry("dialer","remove","speeddial",22);
             m.insertEntry("dialer","open","call history",23);
             m.insertEntry("dialer","see","call history",23);
-            m.insertEntry("dialer","call","someone",24);
+            m.insertEntry("dialer","call","",24);
+            m.insertEntry("dialer","call","",24);
             m.insertEntry("dialer","dial","number",25);
             m.insertEntry("dialer","call","number",25);
             m.insertEntry("dialer","import","sim",26);
