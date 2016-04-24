@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Savvy</string>
+
+    <string name="action_settings">View Tutorial</string>
+    <string name="title_activity_popup">Savvy</string>
+    <string name="title_activity_settings">Savvy</string>
+    <string name="title_activity_splash_screen">Savvy</string>
+</resources>
