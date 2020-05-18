@@ -1,5 +1,9 @@
-# Savvy for the unSavvy!
+# Project Savvy
+## For the unSavvy!
 
-A One Click Personal Assitant
+A Simple One Click Personal Assitant 
 
-Provides precise instructions based on current foreground activity of user
+Provides static yet rich and precise contextual instructions based on currently active foreground activity.
+It understands the current Application you need assistance with and provides relevant instuctions via a popup.
+
+![Angel Hackathon Winner](https://github.com/shouryalala/Savvy/blob/master/AngelHackCertificate.jpg)
